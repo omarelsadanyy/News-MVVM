@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ProgressBar
+            android:id="@+id/progressbar_image"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/image_news"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/image_news" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_news"
+            android:layout_width="match_parent"
+            android:layout_height="232.5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="6dp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/title_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_grey"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_news"
+            tools:text="dfdfdfdfdfdfdf"/>
+
+        <TextView
+            android:id="@+id/title_news"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_title_grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_author"
+            tools:text="fffdfdfdffd" />
+
+        <TextView
+            android:id="@+id/date_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_date_time"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_news"
+            tools:text="fffdfdfdffd" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
