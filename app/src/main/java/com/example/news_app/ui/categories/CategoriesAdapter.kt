@@ -1,16 +1,17 @@
 package com.example.news_app.ui.categories
 
 import android.view.LayoutInflater
-import android.view.View
+
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.news_app.R
 import com.example.news_app.databinding.ItemCategoryLeftSidedBinding
 import com.example.news_app.databinding.ItemCategoryRightSidedBinding
+
+
 import com.google.android.material.card.MaterialCardView
 
 class CategoriesAdapter(val categorylist:List<Category>):RecyclerView.Adapter<ViewHolder>(){
@@ -32,13 +33,13 @@ class CategoriesAdapter(val categorylist:List<Category>):RecyclerView.Adapter<Vi
    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
        if( viewType==isleftsided ){
-           val viewleftBinding:ItemCategoryLeftSidedBinding=DataBindingUtil.inflate(
-               LayoutInflater.from(parent.context),R.layout.item_category_left_sided,parent,false
+           val viewleftBinding: ItemCategoryLeftSidedBinding =DataBindingUtil.inflate(
+               LayoutInflater.from(parent.context), R.layout.item_category_left_sided,parent,false
            )
            return ViewholderLeft(viewleftBinding)
        }else{
-           val viewrightBinding:ItemCategoryRightSidedBinding=DataBindingUtil.inflate(
-               LayoutInflater.from(parent.context),R.layout.item_category_right_sided,parent,false
+           val viewrightBinding: ItemCategoryRightSidedBinding =DataBindingUtil.inflate(
+               LayoutInflater.from(parent.context), R.layout.item_category_right_sided,parent,false
            )
            return ViewholderRight(viewrightBinding)
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
+
 import com.example.news_app.R
 import com.example.news_app.databinding.FragmentcategoriesBinding
 
@@ -25,7 +25,7 @@ class CategoriesFragment:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewBinding=DataBindingUtil.inflate(inflater,R.layout.fragmentcategories,container,false)
+        viewBinding=DataBindingUtil.inflate(inflater, R.layout.fragmentcategories,container,false)
        return  viewBinding.root
     }
    val category= listOf(
@@ -38,7 +38,7 @@ class CategoriesFragment:Fragment() {
    )
 
     lateinit var  category_title: TextView
-    lateinit var viewBinding:FragmentcategoriesBinding
+    lateinit var viewBinding: FragmentcategoriesBinding
     val adapter= CategoriesAdapter( category)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.news_app_mvvm'
+    namespace 'com.example.news_app'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.news_app_mvvm"
+        applicationId "com.example.news_app"
         minSdk 23
         targetSdk 33
         versionCode 1
