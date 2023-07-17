@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiManager {
 
     companion object{
-        private val BASE_URL = "https://newsapi.org/";
+        private val BASE_URL = "https://newsapi.org/"
        private var retrofit:Retrofit?=null
        private fun getinstance():Retrofit{
 

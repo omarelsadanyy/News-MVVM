@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+         <variable
+             name="item"
+             type="com.example.news_app.model.ArticlesItem" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
@@ -24,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="232.5dp"
             android:scaleType="centerCrop"
+            app:ImageUrl="@{item.urlToImage}"
             app:layout_constraintTop_toTopOf="parent"
             app:riv_corner_radius="6dp"
             tools:src="@tools:sample/backgrounds/scenic" />
@@ -34,9 +42,10 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_grey"
             android:textSize="11sp"
+            android:text="@{item.author}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_news"
-            tools:text="dfdfdfdfdfdfdf"/>
+            tools:text="dfdfdfdfdfdfdf" />
 
         <TextView
             android:id="@+id/title_news"
@@ -44,6 +53,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_title_grey"
             android:textSize="15sp"
+            android:text="@{item.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_author"
@@ -55,8 +65,10 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_date_time"
             android:textSize="13sp"
+            android:text="@{item.publishedAt}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_news"
             tools:text="fffdfdfdffd" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

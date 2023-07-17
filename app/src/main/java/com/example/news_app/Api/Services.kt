@@ -16,8 +16,8 @@ interface Services {
 
     @GET("v2/everything")
     fun getNewsFromSources(
-        @Query ("apiKey") apikey: String,
+        @Query ("apiKey") apikey: String?,
         @Query ("sources")source:String,
-        @Query("q") query: String
+        @Query("q") query: String?=null
     ) :Call<NewsResponse>
 }
