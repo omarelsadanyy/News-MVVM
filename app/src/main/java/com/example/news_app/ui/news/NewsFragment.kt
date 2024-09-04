@@ -29,6 +29,7 @@ var articlesItem:ArticlesItem?=null
         return fragment
     }
 }
+    //omaromar
     lateinit var category: Category
     lateinit var viewDataBinding:FragmentnewsBinding
     lateinit var search_icon:SearchView
