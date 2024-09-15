@@ -1,22 +1,14 @@
 package com.example.news_app.ui.news
 
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.news_app.Api.ApiManager
+import com.example.news_app.api.ApiManager
 import com.example.news_app.Constants
-import com.example.news_app.R
 import com.example.news_app.model.ArticlesItem
-import com.example.news_app.model.NewsResponse
 import com.example.news_app.model.SourcesItem
-import com.example.news_app.model.SourcesResponse
 import com.example.news_app.ui.categories.Category
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class NewsViewModel :ViewModel(){
     val sourcesLiveData= MutableLiveData<List<SourcesItem?>?>()
@@ -56,6 +48,7 @@ class NewsViewModel :ViewModel(){
             val result= ApiManager.getApis().getNewsFromSources(Constants.apikey,source?.id?:"",query?:"")
             progressBarVisible.value=false
             articlesLiveData.value=result.articles
+            messageLiveData.value= "Doneeeeee"
         }
 //            .enqueue(object:Callback<NewsResponse>{
 //                override fun onResponse(

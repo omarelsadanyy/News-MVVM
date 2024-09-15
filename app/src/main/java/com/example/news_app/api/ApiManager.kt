@@ -1,4 +1,4 @@
-package com.example.news_app.Api
+package com.example.news_app.api
 
 import android.util.Log
 import okhttp3.OkHttpClient
