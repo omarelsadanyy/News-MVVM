@@ -1,15 +1,8 @@
-package com.example.news_app.repos
+package com.example.news_app.repos.sources
 
-import androidx.room.PrimaryKey
 import com.example.news_app.NetworkHandler
-import com.example.news_app.api.ApiManager
+import com.example.news_app.api.Services
 import com.example.news_app.database.MyDataBase
-import com.example.news_app.repos.sources.SourcesOfflineDataSource
-import com.example.news_app.repos.sources.SourcesOfflineDataSourceImpL
-import com.example.news_app.repos.sources.SourcesOnlineDataSource
-import com.example.news_app.repos.sources.SourcesOnlineDataSourceImpL
-import com.example.news_app.repos.sources.SourcesRepository
-import com.example.news_app.repos.sources.SourcesRepositoryImpL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,12 +11,12 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(Singleton::class)
-object RepositoriesModule {
+@InstallIn(SingletonComponent::class)
+object SourcesModule {
 
     @Provides
-    fun providerOnlineDataSource():SourcesOnlineDataSource{
-        return SourcesOnlineDataSourceImpL(ApiManager.getApis())
+    fun providerOnlineDataSource(webServices:Services):SourcesOnlineDataSource{
+        return SourcesOnlineDataSourceImpL(webServices)
     }
 
     @Provides

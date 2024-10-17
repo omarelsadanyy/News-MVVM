@@ -14,8 +14,10 @@ import com.example.news_app.databinding.AppBarHomeBinding
 import com.example.news_app.ui.categories.CategoriesFragment
 import com.example.news_app.ui.categories.Category
 import com.example.news_app.ui.news.NewsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
 

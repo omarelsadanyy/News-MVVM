@@ -17,7 +17,10 @@ import com.example.news_app.model.ArticlesItem
 import com.example.news_app.model.SourcesItem
 import com.example.news_app.ui.categories.Category
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class NewsFragment:Fragment() {
 companion object{
 var sourcesItemSearch:SourcesItem?=null
@@ -47,7 +50,7 @@ var articlesItem:ArticlesItem?=null
 
  lateinit var viewModel: NewsViewModel
  var newsContentFragment = NewsContentFragment()
- val adapter = NewsAdapter()
+ @Inject lateinit var adapter : NewsAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initviews()
