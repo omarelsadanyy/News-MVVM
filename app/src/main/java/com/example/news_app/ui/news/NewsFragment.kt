@@ -13,8 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.news_app.R
 import com.example.news_app.databinding.FragmentnewsBinding
-import com.example.news_app.model.ArticlesItem
-import com.example.news_app.model.SourcesItem
+import com.example.domain.model.ArticlesItemDTO
+import com.example.domain.model.SourcesItemDTO
 import com.example.news_app.ui.categories.Category
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,8 +23,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NewsFragment:Fragment() {
 companion object{
-var sourcesItemSearch:SourcesItem?=null
-var articlesItem:ArticlesItem?=null
+var sourcesItemSearch: SourcesItemDTO?=null
+var articlesItem: ArticlesItemDTO?=null
    //open newsfragment with the choosen category
     fun getinstance(category: Category): NewsFragment {
         val fragment= NewsFragment()
@@ -94,7 +94,7 @@ var articlesItem:ArticlesItem?=null
     }
 
 
-    private fun showtabs(sources: List<SourcesItem?>?) {
+    private fun showtabs(sources: List<SourcesItemDTO?>?) {
          sources?.forEach{ item->
             val tab= viewDataBinding.tablayout.newTab()
              // attach the tab with the sourceitem
@@ -105,7 +105,7 @@ var articlesItem:ArticlesItem?=null
         viewDataBinding.tablayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                // val Source= sources?.get(tab?.position?:0)
-                val Source = tab?.tag as SourcesItem
+                val Source = tab?.tag as SourcesItemDTO
                 sourcesItemSearch =Source
                 viewModel.loadNews(Source,"")
                 //loadNews(Source,"")
@@ -116,7 +116,7 @@ var articlesItem:ArticlesItem?=null
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                val Source = tab?.tag as SourcesItem
+                val Source = tab?.tag as SourcesItemDTO
                 sourcesItemSearch =Source
                 viewModel.loadNews(Source,"")
                // loadNews(Source,"")
@@ -128,7 +128,7 @@ var articlesItem:ArticlesItem?=null
 
     fun showNewsContent() {
         adapter.onItemClickListener=object : NewsAdapter.OnItemClickListener {
-            override fun onClick(position: Int, items: ArticlesItem) {
+            override fun onClick(position: Int, items: ArticlesItemDTO) {
                articlesItem =items
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.fragment_container,newsContentFragment)
