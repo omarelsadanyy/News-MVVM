@@ -1,27 +1,27 @@
-package com.example.news_app.model
+package com.example.data.model
 
 
 
-import com.example.data.model.SourcesItem
+import com.example.news_app.model.BaseResponeDto
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
-fun <T> Any.convertToDTO(clazz: Class<T>):T{
+fun <T> Any.convertToDomain(clazz: Class<T>):T{ //
     val jsonString= Gson().toJson(this)
     return Gson().fromJson(jsonString,clazz)
 }
-data class NewsResponse(
+data class NewsResponseDto(
 
     @field:SerializedName("totalResults")
     val totalResults: Int? = null,
 
     @field:SerializedName("articles")
-    val articles: List<ArticlesItem?>? = null,
+    val articles: List<ArticlesItemDto?>? = null,
 
 
-    ): BaseRespone()
+    ): BaseResponeDto()
 
-data class ArticlesItem(
+data class ArticlesItemDto(
 
     @field:SerializedName("publishedAt")
     val publishedAt: String? = null,
@@ -36,7 +36,7 @@ data class ArticlesItem(
     val description: String? = null,
 
     @field:SerializedName("source")
-    val source: SourcesItem? = null,
+    val source: SourcesItemDto? = null,
 
     @field:SerializedName("title")
     val title: String? = null,

@@ -1,10 +1,10 @@
 package com.example.domain.model
 
 
-data class SourcesResponseDTO(
+data class SourcesResponse(
 
 
-    val sources: List<SourcesItemDTO?>? = null,
+    val sources: List<SourcesItem?>? = null,
 
 
     val status: String? = null,
@@ -17,7 +17,7 @@ data class SourcesResponseDTO(
 
     )
 
-data class SourcesItemDTO(
+data class SourcesItem(
 
 
     val country: String? = null,

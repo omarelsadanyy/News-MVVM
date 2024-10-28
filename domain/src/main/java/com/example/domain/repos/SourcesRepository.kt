@@ -1,18 +1,10 @@
 package com.example.domain.repos
 
-import com.example.domain.model.SourcesItemDTO
+import com.example.domain.model.SourcesItem
 
 
 interface SourcesRepository {
-    suspend fun  getSources(category:String):List<SourcesItemDTO?>?
+    suspend fun  getSources(category:String):List<SourcesItem?>?
 }
 
-interface SourcesOnlineDataSource{
-    suspend fun  getSources(category:String):List<SourcesItemDTO?>?
-}
 
-interface SourcesOfflineDataSource{
-    suspend fun updateSources(sources:List<SourcesItemDTO?>?)
-    suspend fun getSources(category: String):List<SourcesItemDTO?>?
-
-}

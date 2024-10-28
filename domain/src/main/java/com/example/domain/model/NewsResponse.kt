@@ -1,15 +1,15 @@
 package com.example.domain.model
 
-data class NewsResponseDTO(
+data class NewsResponse(
 //DTO : Data Transfer Object
     val totalResults: Int? = null,
 
-       val articles: List<ArticlesItemDTO?>? = null,
+       val articles: List<ArticlesItem?>? = null,
 
 
-    ): BaseResponeDTO()
+    ): BaseRespone()
 
-data class ArticlesItemDTO(
+data class ArticlesItem(
 
     val publishedAt: String? = null,
 
@@ -19,7 +19,7 @@ data class ArticlesItemDTO(
 
     val description: String? = null,
 
-    val source: SourcesItemDTO? = null,
+    val source: SourcesItem? = null,
 
     val title: String? = null,
 

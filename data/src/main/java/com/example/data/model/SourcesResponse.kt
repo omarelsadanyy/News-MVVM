@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 
 import com.google.gson.annotations.SerializedName
 
-data class SourcesResponse(
+data class SourcesResponseDto(
 
     @field:SerializedName("sources")
-    val sources: List<SourcesItem?>? = null,
+    val sources: List<SourcesItemDto?>? = null,
 
     @field:SerializedName("status")
     val status: String? = null,
@@ -22,7 +22,7 @@ data class SourcesResponse(
 
     )
 @Entity
-data class SourcesItem(
+data class SourcesItemDto(
 
 @ColumnInfo
     @field:SerializedName("country")

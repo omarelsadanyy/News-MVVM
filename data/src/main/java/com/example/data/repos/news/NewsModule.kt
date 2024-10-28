@@ -1,8 +1,9 @@
 package com.example.data.repos.news
 
-import com.example.domain.repos.NewsOnlineDataSource
+
 import com.example.domain.repos.NewsRepository
 import com.example.data.api.Services
+import com.example.data.datasource.NewsOnlineDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

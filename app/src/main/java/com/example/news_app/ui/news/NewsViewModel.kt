@@ -3,8 +3,10 @@ package com.example.news_app.ui.news
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.ArticlesItemDTO
-import com.example.domain.model.SourcesItemDTO
+import com.example.domain.model.ArticlesItem
+
+import com.example.domain.model.SourcesItem
+
 import com.example.domain.repos.NewsRepository
 import com.example.domain.repos.SourcesRepository
 
@@ -18,8 +20,8 @@ class NewsViewModel @Inject constructor(
     val newsRepository: NewsRepository,
     val sourcesRepository: SourcesRepository
 ):ViewModel(){
-    val sourcesLiveData= MutableLiveData<List<SourcesItemDTO?>?>()
-    val articlesLiveData= MutableLiveData<List<ArticlesItemDTO?>?>()
+    val sourcesLiveData= MutableLiveData<List<SourcesItem?>?>()
+    val articlesLiveData= MutableLiveData<List<ArticlesItem?>?>()
     val progressBarVisible=MutableLiveData(false)
     val messageLiveData=MutableLiveData<String>()
 
@@ -35,7 +37,7 @@ class NewsViewModel @Inject constructor(
 
     }
 
-    fun loadNews(source: SourcesItemDTO?, query: String?){
+    fun loadNews(source: SourcesItem?, query: String?){
 
         progressBarVisible.value=true
         viewModelScope.launch {

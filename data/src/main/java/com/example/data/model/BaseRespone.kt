@@ -4,7 +4,7 @@ import androidx.room.Dao
 import com.google.gson.annotations.SerializedName
 
 @Dao
-open class BaseRespone(
+open class BaseResponeDto(
     @field:SerializedName("status")
     val status: String? = null,
 

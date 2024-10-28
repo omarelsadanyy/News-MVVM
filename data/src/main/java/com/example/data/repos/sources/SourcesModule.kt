@@ -1,17 +1,18 @@
 package com.example.data.repos.sources
 
-import com.example.domain.repos.SourcesOfflineDataSource
-import com.example.domain.repos.SourcesOnlineDataSource
+
 import com.example.domain.repos.SourcesRepository
 
 import com.example.data.api.Services
 import com.example.domain.utils.NetworkHandler
 import com.example.data.database.MyDataBase
+import com.example.data.datasource.SourcesOfflineDataSource
+import com.example.data.datasource.SourcesOnlineDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+
 
 
 @Module

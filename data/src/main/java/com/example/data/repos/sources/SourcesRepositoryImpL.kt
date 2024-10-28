@@ -1,11 +1,10 @@
 package com.example.data.repos.sources
 
-import com.example.domain.model.SourcesItemDTO
-
-
-
-import com.example.domain.repos.SourcesOfflineDataSource
-import com.example.domain.repos.SourcesOnlineDataSource
+import com.example.data.datasource.SourcesOfflineDataSource
+import com.example.data.datasource.SourcesOnlineDataSource
+import com.example.data.model.convertToDomain
+import com.example.domain.model.SourcesItem
+import com.example.domain.model.SourcesResponse
 import com.example.domain.repos.SourcesRepository
 import com.example.domain.utils.NetworkHandler
 
@@ -16,18 +15,19 @@ class SourcesRepositoryImpL  @Inject constructor (val sourcesOnlineDataSource: S
                             val sourcesOfflineDataSource: SourcesOfflineDataSource,
                             val networkHandler: NetworkHandler
 ):SourcesRepository {
-    override suspend fun getSources(category: String): List<SourcesItemDTO?>? {
+    override suspend fun getSources(category: String): List<SourcesItem?>? {
         try {
             if(networkHandler.isOnline()){
                 val result= sourcesOnlineDataSource.getSources(category)
                 sourcesOfflineDataSource.updateSources(result)
-                return result
+                return result?.convertToDomain(SourcesResponse::class.java)?.sources
             }
             val res= sourcesOfflineDataSource.getSources(category)
-            return res
+            return res?.convertToDomain(SourcesResponse::class.java)?.sources
 
         }catch (ex:Exception){
-            return sourcesOfflineDataSource.getSources(category)
+            val result =sourcesOfflineDataSource.getSources(category)
+            return result?.convertToDomain(SourcesResponse::class.java)?.sources
         }
     }
 }

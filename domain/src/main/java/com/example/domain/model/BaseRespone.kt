@@ -3,7 +3,7 @@ package com.example.domain.model
 
 
 
-open class BaseResponeDTO(
+open class BaseRespone(
 
     val status: String? = null,
 

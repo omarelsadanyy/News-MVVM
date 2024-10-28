@@ -1,12 +1,9 @@
 package com.example.domain.repos
 
 
-import com.example.domain.model.ArticlesItemDTO
+import com.example.domain.model.ArticlesItem
 
 interface NewsRepository {
-    suspend fun  getNews(sourceId:String):List<ArticlesItemDTO?>?
+    suspend fun  getNews(sourceId:String):List<ArticlesItem?>?
 }
 
-interface  NewsOnlineDataSource{
-    suspend fun  getNewsSourceId(sourceId:String):List<ArticlesItemDTO?>?
-}
